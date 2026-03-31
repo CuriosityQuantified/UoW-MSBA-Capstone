@@ -52,6 +52,7 @@ All resources from the compendium in one place.
 | [Build Advanced AI Agent Systems](https://www.youtube.com/watch?v=1w5cCXlh7JQ) | — | Week 6–7 — intermediate builds |
 | [LangChain + LangGraph Explained (2025)](https://www.youtube.com/watch?v=1ykcOVCQdkY) | — | Week 6–7 — architecture deep dive |
 | [Agentic AI for Beginners](https://www.youtube.com/watch?v=CnXdddeZ4tQ) | — | Week 8–10 — capstone reference |
+| [Anthropic, OpenAI & Microsoft Agreed on One File Format — MCP](https://www.youtube.com/watch?v=0cVuMHaYEHE) | Nate B Jones | Week 3 — MCP standardization & tool interoperability |
 
 ---
 
@@ -73,7 +74,8 @@ All resources from the compendium in one place.
 **Week 3:**
 8. [LangGraph Concepts](https://langchain-ai.github.io/langgraph/concepts/)
 9. [MCP Introduction](https://modelcontextprotocol.io/introduction)
-10. [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use)
+10. Watch: [Anthropic, OpenAI & Microsoft Agreed on One File Format — MCP](https://www.youtube.com/watch?v=0cVuMHaYEHE) — Nate B Jones
+11. [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use)
 
 **Weeks 4–10:**
 11. Start [AI Agents in LangGraph](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/) course
