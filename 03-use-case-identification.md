@@ -87,3 +87,64 @@ From [AI Agentic Design Patterns](https://www.deeplearning.ai/the-batch/how-agen
 | Video | Why |
 |-------|-----|
 | [Harrison Chase — 3 Ingredients for Reliable Enterprise Agents](https://www.youtube.com/watch?v=kTnfJszFxCg) | Use case scoping + production realities |
+
+---
+
+## Art of the Possible
+
+> These are real, working agentic systems — not demos, not prototypes. Study them to calibrate what's actually achievable with today's tools.
+
+The gap between "agent tutorial" and "production agent system" is enormous. The examples below show what the frontier looks like so you can aim higher in your capstone.
+
+---
+
+### 🐟 MiroFish — Swarm Intelligence Prediction Engine
+
+**GitHub:** [CuriosityQuantified/MiroFish](https://github.com/CuriosityQuantified/MiroFish)
+
+MiroFish is a multi-agent swarm simulation engine that predicts how the world reacts to events — before they happen. Feed it a news article, policy draft, or financial report, and it constructs a high-fidelity digital world populated by AI agents with independent personalities, long-term memory, and behavioral logic. Those agents interact, evolve, and generate emergent patterns. The output: a prediction report.
+
+**Why it matters for this course:**
+- Demonstrates the orchestrator-workers pattern at scale (1M+ agents)
+- Shows how knowledge graphs (Graphiti + Kuzu) replace static RAG for agent memory
+- Illustrates emergence: system-level behavior that no single agent was programmed to produce
+- End-to-end example of seed data → agent personas → simulation → prediction report
+
+**Architecture at a glance:**
+```
+Seed Data (news / policy / report)
+        ↓
+Knowledge Graph (Graphiti + Kuzu)     ← embedded, no external services
+        ↓
+Agent Profile Generation              ← personas derived from graph entities
+        ↓
+OASIS Simulation (CAMEL-AI)           ← Twitter + Reddit social platforms
+        ↓
+Emergent Pattern Analysis
+        ↓
+Prediction Report
+```
+
+**Use cases it covers:**
+- Predict public opinion shifts before a product launch
+- Simulate information spread across social networks
+- Stress-test strategic decisions against thousands of simulated human reactions
+- Generate prediction reports for novel narrative scenarios
+
+**Watch first (6 min):** [MiroFish AI Explained: The Multi-Agent Engine Simulating the Future](https://www.youtube.com/watch?v=dbITcA6sRNo) — Moses Samuel
+
+---
+
+### What to Notice When Studying These Systems
+
+When you look at a production agentic system, ask:
+
+| Question | What it reveals |
+|----------|----------------|
+| What is the seed input? | The problem scope the agent is designed for |
+| How is memory handled? | Whether agents can reason across time and context |
+| What triggers a new agent spawn? | The orchestration logic |
+| How does the system output its result? | The contract between the agent system and its users |
+| Where could this fail? | The engineering investment required for reliability |
+
+Calibrate your capstone against these examples. You don't need 1M agents — but you should be able to articulate what your system does, why it needs agents (not just prompts), and what emergent capability it produces.

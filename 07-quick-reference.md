@@ -53,6 +53,7 @@ All resources from the compendium in one place.
 | [LangChain + LangGraph Explained (2025)](https://www.youtube.com/watch?v=1ykcOVCQdkY) | — | Week 6–7 — architecture deep dive |
 | [Agentic AI for Beginners](https://www.youtube.com/watch?v=CnXdddeZ4tQ) | — | Week 8–10 — capstone reference |
 | [Skills Files: Agent-First Design & Three-Tier Architecture](https://www.youtube.com/watch?v=0cVuMHaYEHE) | Nate B Jones (AI News & Strategy Daily) | Week 1 + Week 3 — skills as organizational infrastructure, agent-readable skill design |
+| [MiroFish AI Explained: The Multi-Agent Engine Simulating the Future](https://www.youtube.com/watch?v=dbITcA6sRNo) | Moses Samuel | Art of the Possible — swarm intelligence, orchestrator-workers at scale, emergent prediction |
 
 ---
 
