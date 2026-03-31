@@ -113,7 +113,7 @@ Design this *before* you build. You cannot improve what you cannot measure.
 | [LangGraph — Tutorials](https://langchain-ai.github.io/langgraph/tutorials/) | ~2h | Multi-agent, RAG, HITL worked examples |
 | [Anthropic — MCP Introduction](https://modelcontextprotocol.io/introduction) | ~20 min | The standard for agent tool connectivity |
 | [Anthropic — Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use) | ~20 min | Tool search, dynamic discovery, orchestration |
-| [Anthropic, OpenAI & Microsoft Agreed on One File Format — MCP](https://www.youtube.com/watch?v=0cVuMHaYEHE) | ~10 min | Why MCP matters: industry-wide standardization of agent tool interop |
+| [Skills Files: Agent-First Design & Three-Tier Architecture](https://www.youtube.com/watch?v=0cVuMHaYEHE) | ~26 min | Skills as org infrastructure: description-as-routing, three-tier skill architecture, versioning |
 | [LangGraph — Agentic RAG](https://docs.langchain.com/oss/python/langgraph/agentic-rag) | ~30 min | Worked architecture example |
 
 ## Video — Week 3

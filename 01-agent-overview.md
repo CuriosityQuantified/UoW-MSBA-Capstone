@@ -99,3 +99,4 @@ An orchestrator agent delegates tasks to specialized subagents. Each subagent ha
 |-------|-----|
 | [Harrison Chase — Interrupt 2025 Keynote](https://www.youtube.com/watch?v=DrygcOI-kG8) | State of agents + LangGraph direction |
 | [Harrison Chase — Building Reliable Agents (Amsterdam)](https://www.youtube.com/watch?v=DSdyqPzdlQU) | Enterprise patterns, production realities |
+| [Skills Files: Agent-First Design & Three-Tier Architecture](https://www.youtube.com/watch?v=0cVuMHaYEHE) | Nate B Jones — skills as org infrastructure, description-as-routing, versioning |
