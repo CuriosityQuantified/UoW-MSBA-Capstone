@@ -14,7 +14,8 @@ A structured guide for building production-grade agentic AI applications — fro
 | **Week 1** | Agent Overview & Architectures | What agents are, taxonomy of agent types, modern architecture patterns |
 | **Week 2** | Use Case Identification | When to use an agent vs. workflow, problem framing, feasibility |
 | **Week 3** | Architecture Development | Framework selection, state design, orchestration patterns |
-| **Weeks 4–10** | Code Development | Hands-on builds: tools, memory, routing, multi-agent, eval, deployment |
+| **Week 4** | Observability & Tracing | Instrument your agent before you run it — cost guards, traces, evals |
+| **Weeks 5–10** | Code Development | Hands-on builds: tools, memory, routing, multi-agent, eval, deployment |
 
 ---
 
@@ -27,6 +28,8 @@ A structured guide for building production-grade agentic AI applications — fro
 - [`05-code-development.md`](./05-code-development.md) — Structured learning path (foundation → intermediate → capstone)
 - [`06-progressive-disclosure.md`](./06-progressive-disclosure.md) — Development methodology: progressive disclosure
 - [`07-quick-reference.md`](./07-quick-reference.md) — All links, docs, courses, and videos in one place
+- [`08-observability-tracing.md`](./08-observability-tracing.md) — Tracing, cost guards, Langfuse setup, long-horizon patterns
+- [`examples/observability/`](./examples/observability/) — 4 runnable Python examples (minimal trace → long-horizon guard)
 - [`assets/agent-harness-sdk-diagram.png`](./assets/agent-harness-sdk-diagram.png) — Claude Agent SDK architecture diagram (Thariq Shihipar, Anthropic)
 
 ---

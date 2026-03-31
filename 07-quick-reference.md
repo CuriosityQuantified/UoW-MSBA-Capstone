@@ -27,6 +27,10 @@ All resources from the compendium in one place.
 | [LangChain — Workflows vs. Agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents) | LangChain |
 | [Anthropic — Agents + Tool Use](https://docs.anthropic.com/en/docs/build-with-claude/agents) | Anthropic |
 | [MCP — Introduction](https://modelcontextprotocol.io/introduction) | Anthropic |
+| [Langfuse — Observability Overview](https://langfuse.com/docs/observability/overview) | Langfuse |
+| [Langfuse — Get Started with Tracing](https://langfuse.com/docs/observability/get-started) | Langfuse |
+| [Langfuse — AI Agent Observability Guide](https://langfuse.com/blog/2024-07-ai-agent-observability-with-langfuse) | Langfuse |
+| [LangChain — On Agent Frameworks and Observability](https://blog.langchain.com/on-agent-frameworks-and-agent-observability/) | LangChain |
 
 ---
 
@@ -54,6 +58,9 @@ All resources from the compendium in one place.
 | [Agentic AI for Beginners](https://www.youtube.com/watch?v=CnXdddeZ4tQ) | — | Week 8–10 — capstone reference |
 | [Skills Files: Agent-First Design & Three-Tier Architecture](https://www.youtube.com/watch?v=0cVuMHaYEHE) | Nate B Jones (AI News & Strategy Daily) | Week 1 + Week 3 — skills as organizational infrastructure, agent-readable skill design |
 | [MiroFish AI Explained: The Multi-Agent Engine Simulating the Future](https://www.youtube.com/watch?v=dbITcA6sRNo) | Moses Samuel | Art of the Possible — swarm intelligence, orchestrator-workers at scale, emergent prediction |
+| [Langfuse Intro — Observability & Tracing Deep Dive](https://www.youtube.com/watch?v=pTneXS_m1rk) | Langfuse (Marc, CEO) | Week 4 — official product walkthrough, 11 min |
+| [LangSmith 101 for AI Observability](https://www.youtube.com/watch?v=Iyc80hY2yYk) | James Briggs | Week 4 — LangSmith alternative if on LangChain stack, 9 min |
+| [Stop Confusing LangChain, LangGraph, and LangSmith](https://www.youtube.com/watch?v=e-GR3PlEOVU) | ByteMonk | Week 4 — how tracing fits the full stack, strong on long-horizon concerns, 12 min |
 
 ---
 
@@ -78,7 +85,13 @@ All resources from the compendium in one place.
 10. Watch: [Skills Files: Agent-First Design & Three-Tier Architecture](https://www.youtube.com/watch?v=0cVuMHaYEHE) — Nate B Jones (focus: description field as routing signal, three-tier skill architecture)
 11. [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use)
 
-**Weeks 4–10:**
-11. Start [AI Agents in LangGraph](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/) course
+**Week 4 — Observability:**
+11. [Langfuse — AI Agent Observability Guide](https://langfuse.com/blog/2024-07-ai-agent-observability-with-langfuse)
+12. [Langfuse — Get Started with Tracing](https://langfuse.com/docs/observability/get-started)
+13. Watch: [Langfuse Intro — Observability & Tracing Deep Dive](https://www.youtube.com/watch?v=pTneXS_m1rk)
+14. Run examples: `examples/observability/01_minimal_trace.py` → `04_long_horizon_guard.py`
+
+**Weeks 5–10:**
+15. Start [AI Agents in LangGraph](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/) course
 12. Then [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph)
 13. Then [HuggingFace Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
