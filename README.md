@@ -29,6 +29,7 @@ A structured guide for building production-grade agentic AI applications — fro
 - [`06-progressive-disclosure.md`](./06-progressive-disclosure.md) — Development methodology: progressive disclosure
 - [`07-quick-reference.md`](./07-quick-reference.md) — All links, docs, courses, and videos in one place
 - [`08-observability-tracing.md`](./08-observability-tracing.md) — Tracing, cost guards, Langfuse setup, long-horizon patterns
+- [`09-data-sources.md`](./09-data-sources.md) — Curated data sources for capstone projects (Kaggle, HuggingFace, FRED, data.world + more)
 - [`examples/observability/`](./examples/observability/) — 4 runnable Python examples (minimal trace → long-horizon guard)
 - [`assets/agent-harness-sdk-diagram.png`](./assets/agent-harness-sdk-diagram.png) — Claude Agent SDK architecture diagram (Thariq Shihipar, Anthropic)
 
