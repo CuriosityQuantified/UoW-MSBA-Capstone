@@ -25,7 +25,7 @@ Functions the LLM can invoke to act on the world:
 Not just "the system prompt." A structured agent has:
 - **Core agent prompt** — defines identity, behavior, and constraints
 - **Workflow prompts** — per-task instructions injected at runtime
-- **Custom prompts** — skill-specific instructions loaded on demand (see Progressive Disclosure)
+- **Skills & custom prompts** — skill-specific instructions loaded on demand (see [Progressive Disclosure](./progressive-disclosure.md))
 
 ### 4. Skills / Skill Files
 A self-contained capability bundle: a SKILL.md (instructions), optional scripts, and tool definitions. The agent loads skill instructions *on demand* — not all upfront. This is progressive disclosure in practice.
