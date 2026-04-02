@@ -66,6 +66,47 @@ A production-ready agentic application that demonstrates the full lifecycle:
 
 ---
 
+## Claude Code Workflows — Production Patterns
+
+> **Source:** [How Claude Code's Creator Starts Every Project](https://youtu.be/KWrsLqnB6vA) — Austin Marchese (12 min)
+
+Six workflows used by experienced Claude Code practitioners. Apply from Week 5 onward.
+
+### 1. Plan Mode First
+80% of sessions should start in plan mode (Shift+Tab twice in Claude Code). Lock in the plan before building — execution becomes nearly automatic once the architecture is agreed.
+
+**Kickoff prompt:**
+> *"Interview me about this. What's the core problem? Who is it for? What does success look like? What should it NOT do?"*
+
+### 2. Minimal `claude.md`
+Keep your `claude.md` short (~few thousand tokens max). When it gets bloated, delete it entirely and rebuild from scratch — the model improves over time and old rules are often baked in already.
+
+**Maintenance prompt:**
+> *"Update claude.md to remove anything contradictory, duplicate, or unnecessary."*
+
+### 3. Verification Loops
+Give Claude a tool to see the output of its own work, then tell it about that tool. It figures out the verification pattern from there.
+
+**Add to `claude.md`:**
+> *"Before any work, mention how you'd verify it."*
+
+**Post-session sweep:**
+> *"Go back and verify all your work. Check for best practices, efficiency, and new issues."*
+
+### 4. Parallel Sessions
+Run multiple Claude sessions on partitioned, non-overlapping tasks simultaneously. Fresh context windows catch errors that deep-context sessions miss. Two agents that don't know about each other tend to produce better results than one agent doing everything.
+
+### 5. Inner Loops → Slash Commands / Skills
+Anything you do repeatedly: document it as a reusable skill and run it consistently.
+
+**Kickoff prompt:**
+> *"Based on the project I'm working on, what Claude skills should I create?"*
+
+### 6. Build for the Future — Information Architecture Over Prompt Tweaks
+The Bitter Lesson: don't over-optimize prompts. The model will outpace them in 6 months. Focus instead on **information architecture** — what context you're feeding the model, how it's structured, and what it can access — not micro-prompt tweaks.
+
+---
+
 ## Week-by-Week Summary
 
 | Week | Focus | Deliverable |

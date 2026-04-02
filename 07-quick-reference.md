@@ -61,6 +61,7 @@ All resources from the compendium in one place.
 | [Langfuse Intro — Observability & Tracing Deep Dive](https://www.youtube.com/watch?v=pTneXS_m1rk) | Langfuse (Marc, CEO) | Week 4 — official product walkthrough, 11 min |
 | [LangSmith 101 for AI Observability](https://www.youtube.com/watch?v=Iyc80hY2yYk) | James Briggs | Week 4 — LangSmith alternative if on LangChain stack, 9 min |
 | [Stop Confusing LangChain, LangGraph, and LangSmith](https://www.youtube.com/watch?v=e-GR3PlEOVU) | ByteMonk | Week 4 — how tracing fits the full stack, strong on long-horizon concerns, 12 min |
+| [How Claude Code's Creator Starts Every Project](https://youtu.be/KWrsLqnB6vA) | Austin Marchese | Week 5+ — 6 production workflows for Claude Code: plan mode, minimal claude.md, verification loops, parallel sessions, slash commands, information architecture |
 
 ---
 
