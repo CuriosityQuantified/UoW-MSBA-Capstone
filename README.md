@@ -43,6 +43,7 @@ Core concepts — read when the weekly curriculum sends you here, or when you ne
 | [`concepts/progressive-disclosure.md`](./concepts/progressive-disclosure.md) | Development methodology: progressive disclosure |
 | [`concepts/code-development.md`](./concepts/code-development.md) | Structured learning path (foundation → intermediate → capstone) |
 | [`concepts/observability-tracing.md`](./concepts/observability-tracing.md) | Tracing, cost guards, Langfuse setup, long-horizon patterns |
+| [`concepts/continual-learning.md`](./concepts/continual-learning.md) | How agents learn: model layer, harness layer, context layer updates |
 
 ---
 
