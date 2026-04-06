@@ -55,4 +55,4 @@ Before coding, answer these:
 ---
 
 ## Next Week
-→ [`week-04-coding-foundations.md`](./week-04-coding-foundations.md) — Start coding. Instrument first, build second.
+→ [`week-04-coding.md`](./week-04-coding.md) — Start coding with observability integrated from day one.

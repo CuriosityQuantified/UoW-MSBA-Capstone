@@ -25,8 +25,7 @@ Follow the weekly guides in order. Each links to the right concepts, readings, a
 | **Week 1** | [`curriculum/week-01-foundations.md`](./curriculum/week-01-foundations.md) | What agents are, taxonomy, the agent loop |
 | **Week 2** | [`curriculum/week-02-use-cases.md`](./curriculum/week-02-use-cases.md) | When to use agents, Anthropic's 5 patterns, feasibility |
 | **Week 3** | [`curriculum/week-03-architecture.md`](./curriculum/week-03-architecture.md) | Framework selection, state design, orchestration |
-| **Week 4** | [`curriculum/week-04-coding-foundations.md`](./curriculum/week-04-coding-foundations.md) | Coding starts: build first agent, instrument with tracing |
-| **Week 5+** | [`curriculum/week-05-advanced-coding.md`](./curriculum/week-05-advanced-coding.md) | Multi-agent, memory, evaluation, deployment |
+| **Week 4** | [`curriculum/week-04-coding.md`](./curriculum/week-04-coding.md) | Coding starts: build agent with observability integrated |
 
 ---
 
