@@ -119,7 +119,21 @@ Demo-ready system.
 
 ## Claude Code Workflows
 
-If using Claude Code for capstone development, these 6 strategies from Austin Marchese (creator):
+If using Claude Code for capstone development:
+
+### The Golden Rule: Think Before Building
+*From [OpinionAI on Claude Code workflow](https://substack.com/@opinionai/note/c-238928597)*
+
+Most people use Claude Code too early and too fast. The better workflow is about **sequencing**, not just prompting:
+
+1. **Ask for the plan first** — Make it think before it builds
+2. **Define rules in `claude.md`** — Lock in constraints before execution
+3. **Write the failing test** — Define "done" before implementing
+4. **Then execute** — Only after the plan is clear
+
+That one shift saves a lot of messy refactoring later.
+
+### Six Strategies from Austin Marchese (Claude Code creator)
 
 1. **Plan mode first** — `Shift+Tab` twice before every session
 2. **Minimal `claude.md`** — Keep it under a few thousand tokens
