@@ -1,4 +1,4 @@
-# Week 4 — Code Development
+# Weeks 4-End — Code Development
 
 **Goal:** Build production-capable agentic systems. Move from planning to evaluated, observable, deployable code.
 
@@ -12,7 +12,7 @@ Week 4 is where you transition from planning to building. This is a 6-week arc:
 - **Weeks 4–5**: Single-agent fundamentals with observability baked in
 - **Weeks 6–7**: Multi-agent, memory, and routing
 - **Weeks 8–9**: Evaluation, cost guards, error handling
-- **Week 10**: Deployment / demo-ready
+- **Week 10+**: Deployment / demo-ready
 
 ---
 
