@@ -55,4 +55,4 @@ Before coding, answer these:
 ---
 
 ## Next Week
-→ [`week-04-observability.md`](./week-04-observability.md) — Before you run your agent, instrument it.
+→ [`week-04-coding-foundations.md`](./week-04-coding-foundations.md) — Start coding. Instrument first, build second.
