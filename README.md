@@ -22,10 +22,10 @@ Follow the weekly guides in order. Each links to the right concepts, readings, a
 
 | Week | Guide | Topic |
 |------|-------|-------|
-| **Week 1** | [`curriculum/week-01-foundations.md`](./curriculum/week-01-foundations.md) | What agents are, taxonomy, the agent loop |
-| **Week 2** | [`curriculum/week-02-use-cases.md`](./curriculum/week-02-use-cases.md) | When to use agents, Anthropic's 5 patterns, feasibility |
-| **Week 3** | [`curriculum/week-03-architecture.md`](./curriculum/week-03-architecture.md) | Framework selection, state design, orchestration |
-| **Week 4** | [`curriculum/weeks-04-end-coding.md`](./curriculum/weeks-04-end-coding.md) | Coding starts: build agent with observability integrated |
+| **Week 1** | [`curriculum/foundations/week-01-foundations.md`](./curriculum/foundations/week-01-foundations.md) | What agents are, taxonomy, the agent loop |
+| **Week 2** | [`curriculum/use-cases/week-02-use-cases.md`](./curriculum/use-cases/week-02-use-cases.md) | When to use agents, Anthropic's 5 patterns, feasibility |
+| **Week 3** | [`curriculum/architecture/week-03-architecture.md`](./curriculum/architecture/week-03-architecture.md) | Framework selection, state design, orchestration |
+| **Week 4** | [`curriculum/code-development/weeks-04-end-coding.md`](./curriculum/code-development/weeks-04-end-coding.md) | Coding starts: build agent with observability integrated |
 
 ---
 
@@ -37,7 +37,7 @@ Core concepts — read when the weekly curriculum sends you here, or when you ne
 |------|---------------|
 | [`concepts/agent-overview.md`](./concepts/agent-overview.md) | What is a modern agent? Components, taxonomy, the agent loop |
 | [`concepts/agent-harness.md`](./concepts/agent-harness.md) | What is an agent harness? Harness vs. graph-based agents |
-| [`concepts/use-case-identification.md`](./concepts/use-case-identification.md) | When to use agents, the 5 agentic patterns, Andrew Ng's 4 design patterns |
+| [`curriculum/architecture/agentic-patterns.md`](./curriculum/architecture/agentic-patterns.md) | When to use agents vs workflows, Anthropic's 5 patterns, Andrew Ng's 4 patterns |
 | [`concepts/architecture-development.md`](./concepts/architecture-development.md) | Framework selection, state, tools, memory, eval |
 | [`concepts/progressive-disclosure.md`](./concepts/progressive-disclosure.md) | Development methodology: progressive disclosure |
 | [`concepts/code-development.md`](./concepts/code-development.md) | Structured learning path (foundation → intermediate → capstone) |

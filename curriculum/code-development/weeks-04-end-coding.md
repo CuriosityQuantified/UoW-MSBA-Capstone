@@ -44,7 +44,7 @@ examples/observability/03_cost_guard.py
 examples/observability/04_long_horizon_guard.py
 ```
 
-→ See [`examples/README.md`](../examples/README.md) for setup.
+→ See [`../../examples/README.md`](../../examples/README.md) for setup.
 
 ---
 
@@ -110,10 +110,10 @@ Demo-ready system.
 
 ## Concept Docs
 
-- [`concepts/code-development.md`](../concepts/code-development.md) — Learning path, project scaffolding
-- [`concepts/observability-tracing.md`](../concepts/observability-tracing.md) — Traces, spans, cost guards
-- [`concepts/progressive-disclosure.md`](../concepts/progressive-disclosure.md) — Codebase organization
-- [`concepts/continual-learning.md`](../concepts/continual-learning.md) — How agents improve over time
+- [`concepts/code-development.md`](../../concepts/code-development.md) — Learning path, project scaffolding
+- [`concepts/observability-tracing.md`](../../concepts/observability-tracing.md) — Traces, spans, cost guards
+- [`concepts/progressive-disclosure.md`](../../concepts/progressive-disclosure.md) — Codebase organization
+- [`concepts/continual-learning.md`](../../concepts/continual-learning.md) — How agents improve over time
 
 ---
 
@@ -146,6 +146,6 @@ That one shift saves a lot of messy refactoring later.
 
 ## FAQ
 
-- [`faq/README.md`](../faq/README.md) — Common questions
-- [`faq/framework-choices.md`](../faq/framework-choices.md) — When to use what
-- [`faq/common-errors.md`](../faq/common-errors.md) — Debugging guide
+- [`faq/README.md`](../../faq/README.md) — Common questions
+- [`faq/framework-choices.md`](../../faq/framework-choices.md) — When to use what
+- [`faq/common-errors.md`](../../faq/common-errors.md) — Debugging guide

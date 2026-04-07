@@ -25,8 +25,9 @@ A week spent on architecture saves three weeks of refactoring. The decisions you
 
 ## Concept Docs
 
-- [`concepts/architecture-development.md`](../concepts/architecture-development.md) — Framework selection, state design, tool patterns, memory types, eval
-- [`concepts/progressive-disclosure.md`](../concepts/progressive-disclosure.md) — Why you should NOT front-load all tools/context into the system prompt
+- [`concepts/architecture-development.md`](../../concepts/architecture-development.md) — Framework selection, state design, tool patterns, memory types, eval
+- [`concepts/progressive-disclosure.md`](../../concepts/progressive-disclosure.md) — Why you should NOT front-load all tools/context into the system prompt
+- [`agentic-patterns.md`](./agentic-patterns.md) — When to use agents vs workflows, Anthropic's 5 patterns, Andrew Ng's 4 patterns
 
 ---
 
@@ -39,7 +40,7 @@ A week spent on architecture saves three weeks of refactoring. The decisions you
 | Multi-step with human-in-the-loop checkpoints | LangGraph |
 | Rapid prototype / research task | Harness |
 
-→ See [`faq/framework-choices.md`](../faq/framework-choices.md) for a fuller breakdown.
+→ See [`../../faq/framework-choices.md`](../../faq/framework-choices.md) for a fuller breakdown.
 
 ---
 
@@ -55,4 +56,4 @@ Before coding, answer these:
 ---
 
 ## Next Week
-→ [`weeks-04-end-coding.md`](./weeks-04-end-coding.md) — Start coding with observability integrated from day one.
+→ [`../code-development/weeks-04-end-coding.md`](../code-development/weeks-04-end-coding.md) — Start coding with observability integrated from day one.

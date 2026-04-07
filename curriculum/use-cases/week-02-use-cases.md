@@ -23,7 +23,7 @@ The most expensive mistake in agentic development is building an agent for a tas
 
 ## Concept Docs
 
-- [`concepts/use-case-identification.md`](../concepts/use-case-identification.md) — The 5 patterns, the decision framework, common failure modes
+- [`curriculum/architecture/agentic-patterns.md`](../architecture/agentic-patterns.md) — The 5 patterns, the decision framework, common failure modes
 
 ---
 
@@ -47,4 +47,4 @@ Take your capstone project idea and answer:
 ---
 
 ## Next Week
-→ [`week-03-architecture.md`](./week-03-architecture.md) — Once you've validated your use case, design the architecture.
+→ [`../architecture/week-03-architecture.md`](../architecture/week-03-architecture.md) — Once you've validated your use case, design the architecture.

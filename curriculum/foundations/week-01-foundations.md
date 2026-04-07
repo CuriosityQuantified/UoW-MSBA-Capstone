@@ -32,8 +32,8 @@ By end of week you should be able to: define an agent, distinguish between harne
 
 ## Concept Docs
 
-- [`concepts/agent-overview.md`](../concepts/agent-overview.md) — Components, taxonomy, the 3 agent paradigms
-- [`concepts/agent-harness.md`](../concepts/agent-harness.md) — What the harness provides, harness vs. graph decision rule
+- [`concepts/agent-overview.md`](../../concepts/agent-overview.md) — Components, taxonomy, the 3 agent paradigms
+- [`concepts/agent-harness.md`](../../concepts/agent-harness.md) — What the harness provides, harness vs. graph decision rule
 
 ---
 
@@ -46,4 +46,4 @@ By end of week you should be able to: define an agent, distinguish between harne
 ---
 
 ## Next Week
-→ [`week-02-use-cases.md`](./week-02-use-cases.md) — Now that you know what agents are, learn when to use them.
+→ [`../use-cases/week-02-use-cases.md`](../use-cases/week-02-use-cases.md) — Now that you know what agents are, learn when to use them.
