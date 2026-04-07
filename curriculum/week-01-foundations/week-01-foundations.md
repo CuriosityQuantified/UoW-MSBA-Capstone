@@ -46,4 +46,4 @@ By end of week you should be able to: define an agent, distinguish between harne
 ---
 
 ## Next Week
-→ [`../use-cases/week-02-use-cases.md`](../use-cases/week-02-use-cases.md) — Now that you know what agents are, learn when to use them.
+→ [`../week-02-use-cases/week-02-use-cases.md`](../week-02-use-cases/week-02-use-cases.md) — Now that you know what agents are, learn when to use them.

@@ -56,4 +56,4 @@ Before coding, answer these:
 ---
 
 ## Next Week
-→ [`../code-development/weeks-04-end-coding.md`](../code-development/weeks-04-end-coding.md) — Start coding with observability integrated from day one.
+→ [`../weeks-04-end-coding/weeks-04-end-coding.md`](../weeks-04-end-coding/weeks-04-end-coding.md) — Start coding with observability integrated from day one.
