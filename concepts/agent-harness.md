@@ -27,7 +27,7 @@ The harness is the infrastructure layer that sits between the LLM and the outsid
 
 The diagram below (from Thariq Shihipar's [Claude Agent SDK Full Workshop](https://www.youtube.com/watch?v=TqC1qOfiVcQ), at 6:01) shows the harness architecture Anthropic ships:
 
-![Claude Agent SDK Harness Architecture](./assets/agent-harness-sdk-diagram.png)
+![Claude Agent SDK Harness Architecture](agent-harness-sdk-diagram.png)
 
 **Architecture breakdown:**
 
