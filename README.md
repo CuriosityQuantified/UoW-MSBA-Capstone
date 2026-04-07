@@ -23,7 +23,7 @@ Follow the weekly guides in order. Each links to the right concepts, readings, a
 | Week | Guide | Topic |
 |------|-------|-------|
 | **Week 1** | [`curriculum/week-01-foundations/week-01-foundations.md`](./curriculum/week-01-foundations/week-01-foundations.md) | What agents are, taxonomy, the agent loop |
-| **Week 2** | [`curriculum/week-02-use-cases/week-02-use-cases.md`](./curriculum/week-02-use-cases/week-02-use-cases.md) | When to use agents, Anthropic's 5 patterns, feasibility |
+| **Week 2** | [`curriculum/week-02-use-cases/week-02-use-cases.md`](./curriculum/week-02-use-cases/week-02-use-cases.md) | Use case identification: market research, frameworks, problem statement framing |
 | **Week 3** | [`curriculum/week-03-architecture/week-03-architecture.md`](./curriculum/week-03-architecture/week-03-architecture.md) | Framework selection, state design, orchestration |
 | **Week 4** | [`curriculum/weeks-04-end-coding/weeks-04-end-coding.md`](./curriculum/weeks-04-end-coding/weeks-04-end-coding.md) | Coding starts: build agent with observability integrated |
 
