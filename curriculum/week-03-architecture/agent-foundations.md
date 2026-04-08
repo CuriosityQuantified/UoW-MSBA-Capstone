@@ -1,6 +1,6 @@
-# Deep Agents: Core Concepts & First Principles
+# Agent Foundations: Core Concepts & First Principles
 
-*A foundational guide to LangChain Deep Agents architecture, context engineering, and documentation retrieval tools.*
+*Foundational agent architecture concepts, with [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/) as a reference implementation.*
 
 ---
 
@@ -14,11 +14,11 @@
 
 ---
 
-## 1. Deep Agents Overview
+## 1. Agent Architecture Overview
 
 ### Core Concept
 
-Deep Agents is a framework for building **long-running, autonomous AI agents** that can handle complex multi-step tasks. Unlike simple chatbots or single-turn LLM calls, Deep Agents are designed to:
+**Deep Agents** (LangChain's implementation) is a framework for building **long-running, autonomous AI agents** that can handle complex multi-step tasks. Unlike simple chatbots or single-turn LLM calls, Deep Agents are designed to:
 
 - Execute extended workflows that span minutes or hours
 - Maintain state across interactions
@@ -26,11 +26,11 @@ Deep Agents is a framework for building **long-running, autonomous AI agents** t
 - Interact with filesystems, code, and external tools
 - Compress and manage context to stay within token limits
 
-**Why it matters:** Traditional LLM interactions are stateless and limited by context windows. Deep Agents solve the "deep work" problem—tasks that require planning, iteration, tool use, and persistence.
+**Why it matters:** Traditional LLM interactions are stateless and limited by context windows. Agent frameworks like Deep Agents solve the "deep work" problem—tasks that require planning, iteration, tool use, and persistence.
 
-### First Principles
+### First Principles (Agent Design)
 
-1. **Agents need structure to scale** — Unstructured LLM conversations don't scale to complex tasks. Deep Agents provide architectural patterns (harness, subagents, skills) that impose necessary structure.
+1. **Agents need structure to scale** — Unstructured LLM conversations don't scale to complex tasks. Agent harnesses provide architectural patterns (harness, subagents, skills) that impose necessary structure.
 
 2. **Context is a scarce resource** — Context windows are finite. Deep Agents treat context engineering as a first-class concern with offloading, summarization, and isolation patterns.
 

@@ -1,6 +1,6 @@
-# LangChain Deep Agents: Subagents & Async Patterns
+# Agent Subagents: Architecture & Async Patterns
 
-A comprehensive guide to subagent architecture and async execution patterns in LangChain Deep Agents.
+*Subagent architecture and async execution patterns, with [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/) as a reference implementation.*
 
 ---
 

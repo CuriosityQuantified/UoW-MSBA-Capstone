@@ -1,14 +1,16 @@
-# Deep Agents: Memory Architecture & Human-in-the-Loop
+# Agent Memory & Human-in-the-Loop
 
 **Week 3 Architecture Deep Dive | UoW MSBA Capstone**
+
+*Memory architecture and HITL patterns, with [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/) as a reference implementation.*
 
 ---
 
 ## 1. MEMORY ARCHITECTURE
 
-### 1.1 Memory Types in Deep Agents
+### 1.1 Memory Types in Agent Systems
 
-Deep Agents implements three primary memory types, each serving distinct cognitive functions:
+Agent frameworks like Deep Agents implement four primary memory types, each serving distinct cognitive functions:
 
 #### Working Memory (Short-Term)
 - **What it is**: Conversation history, scratch files, and intermediate reasoning within a single session

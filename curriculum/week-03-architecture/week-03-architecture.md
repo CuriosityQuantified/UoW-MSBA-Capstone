@@ -29,14 +29,14 @@ A week spent on architecture saves three weeks of refactoring. The decisions you
 - [`concepts/progressive-disclosure.md`](../../concepts/progressive-disclosure.md) — Why you should NOT front-load all tools/context into the system prompt
 - [`agentic-patterns.md`](./agentic-patterns.md) — When to use agents vs workflows, Anthropic's 5 patterns, Andrew Ng's 4 patterns
 
-## Deep Agents Foundations (New)
+## Agent Architecture Foundations (New)
 
-LangChain Deep Agents is a production-ready agent framework. These guides cover the core concepts:
+These guides cover foundational agent concepts, with [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/) as a reference implementation:
 
-- [`deep-agents-foundations.md`](./deep-agents-foundations.md) — First principles: harness, models, context engineering, Context7/DeepWiki docs
-- [`deep-agents-skills.md`](./deep-agents-skills.md) — Skill design: declarative capabilities that replace hardcoded workflows
-- [`deep-agents-subagents.md`](./deep-agents-subagents.md) — Subagent patterns: orchestration, async execution, parent-child relationships
-- [`deep-agents-memory-hitl.md`](./deep-agents-memory-hitl.md) — Memory architecture and human-in-the-loop patterns
+- [`agent-foundations.md`](./agent-foundations.md) — First principles: harness, models, context engineering, Context7/DeepWiki docs
+- [`agent-skills.md`](./agent-skills.md) — Skill design: declarative capabilities that replace many hardcoded workflows
+- [`agent-subagents.md`](./agent-subagents.md) — Subagent patterns: orchestration, async execution, parent-child relationships
+- [`agent-memory-hitl.md`](./agent-memory-hitl.md) — Memory architecture and human-in-the-loop patterns
 
 ---
 

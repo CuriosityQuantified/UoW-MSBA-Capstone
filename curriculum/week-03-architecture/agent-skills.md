@@ -1,6 +1,8 @@
-# Deep Agents Skills: A Comprehensive Guide
+# Agent Skills: A Comprehensive Guide
 
 > **Key Insight**: Skills are **declarative, composable, and agent-discoverable** — they shift control from developer-defined workflows to agent-selected capabilities.
+>
+> *Reference implementation: [LangChain Deep Agents Skills](https://docs.langchain.com/oss/python/deepagents/skills)*
 
 ---
 
@@ -20,7 +22,7 @@
 
 ### Definition
 
-A **Skill** is a self-contained, declarative capability package that teaches an agent how to perform a specialized task. In LangChain Deep Agents, skills are directory-based modules containing:
+A **Skill** is a self-contained, declarative capability package that teaches an agent how to perform a specialized task. In Deep Agents (LangChain's implementation), skills are directory-based modules containing:
 
 ```
 skill-name/

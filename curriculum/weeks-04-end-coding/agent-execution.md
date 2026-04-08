@@ -1,6 +1,8 @@
-# Deep Agents: Sandboxes & Streaming
+# Agent Execution: Sandboxes & Streaming
 
-> Reference: [LangChain Deep Agents Sandboxes](https://docs.langchain.com/oss/python/deepagents/sandboxes) | [LangChain Deep Agents Streaming](https://docs.langchain.com/oss/python/deepagents/streaming)
+*Secure execution and real-time communication patterns, with [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/) as a reference implementation.*
+
+> Reference: [Deep Agents Sandboxes](https://docs.langchain.com/oss/python/deepagents/sandboxes) | [Deep Agents Streaming](https://docs.langchain.com/oss/python/deepagents/streaming)
 
 ---
 
