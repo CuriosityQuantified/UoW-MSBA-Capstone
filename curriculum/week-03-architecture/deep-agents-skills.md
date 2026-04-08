@@ -132,6 +132,20 @@ agent = create_deep_agent(
 # Done. No code changes.
 ```
 
+### When Traditional Workflows Are Still Required
+
+Skills replace **many** use cases that previously required strict agentic orchestration, but traditional LangGraph workflows remain essential for:
+
+| Scenario | Why Traditional Workflow |
+|----------|--------------------------|
+| **Compliance workflows** | Specific steps must be taken in order; audit trail required |
+| **Safety-critical processes** | High stakes where deviation from process has severe consequences |
+| **Regulatory requirements** | Industry mandates (healthcare, finance) require deterministic paths |
+| **Human-in-the-loop checkpoints** | Explicit approval gates at known decision points |
+| **Forensic auditability** | Every decision point must be inspectable and reproducible |
+
+**The Nuanced View**: Skills excel at *open-ended reasoning tasks* where the agent should adapt to context. Traditional workflows excel at *procedural compliance* where deviation is dangerous or illegal.
+
 ### Comparison Matrix
 
 | Aspect | Traditional Workflow | Skills-Based |
@@ -143,6 +157,7 @@ agent = create_deep_agent(
 | **Modularity** | Tightly coupled nodes | Self-contained skill packages |
 | **Testing** | Test the whole graph | Test skills in isolation |
 | **Sharing** | Copy/paste code | Share skill directories |
+| **Compliance** | Explicit, auditable paths | Agent-driven, less predictable |
 
 ---
 
