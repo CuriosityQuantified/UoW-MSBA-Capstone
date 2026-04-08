@@ -115,6 +115,10 @@ Demo-ready system.
 - [`concepts/progressive-disclosure.md`](../../concepts/progressive-disclosure.md) — Codebase organization
 - [`concepts/continual-learning.md`](../../concepts/continual-learning.md) — How agents improve over time
 
+## Deep Agents Execution (New)
+
+- [`deep-agents-execution.md`](./deep-agents-execution.md) — Sandboxes and streaming for secure, real-time agent execution
+
 ---
 
 ## Claude Code Workflows

@@ -36,7 +36,7 @@ Core concepts — read when the weekly curriculum sends you here, or when you ne
 | File | What it covers |
 |------|---------------|
 | [`concepts/agent-overview.md`](./concepts/agent-overview.md) | What is a modern agent? Components, taxonomy, the agent loop |
-| [`concepts/agent-harness.md`](./concepts/agent-harness.md) | What is an agent harness? Harness vs. graph-based agents |
+| [`concepts/agent-harness.md`](./concepts/agent-harness.md) | What is an agent harness? Harness vs. graph-based agents (includes architecture diagram) |
 | [`curriculum/week-03-architecture/agentic-patterns.md`](./curriculum/week-03-architecture/agentic-patterns.md) | When to use agents vs workflows, Anthropic's 5 patterns, Andrew Ng's 4 patterns |
 | [`concepts/architecture-development.md`](./concepts/architecture-development.md) | Framework selection, state, tools, memory, eval |
 | [`concepts/progressive-disclosure.md`](./concepts/progressive-disclosure.md) | Development methodology: progressive disclosure |
