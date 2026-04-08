@@ -38,6 +38,15 @@ These guides cover foundational agent concepts, with [LangChain Deep Agents](htt
 - [`agent-subagents.md`](./agent-subagents.md) — Subagent patterns: orchestration, async execution, parent-child relationships
 - [`agent-memory-hitl.md`](./agent-memory-hitl.md) — Memory architecture and human-in-the-loop patterns
 
+## Production Agent Harness Examples
+
+Compare two production-grade agent harness architectures:
+
+- [`claude-code-harness.md`](./claude-code-harness.md) — **Anthropic Claude Code** (April 2026): Skills, MCP integration, permission system, context compaction
+- [`agent-foundations.md`](./agent-foundations.md) — **LangChain Deep Agents**: Subagents, sandboxes, streaming, context engineering
+
+Both demonstrate how production harnesses separate reasoning from execution, manage context, and enable extensibility.
+
 ---
 
 ## Framework Decision
