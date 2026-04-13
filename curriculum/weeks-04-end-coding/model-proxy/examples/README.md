@@ -17,8 +17,8 @@ LANGFUSE_HOST=https://us.cloud.langfuse.com
 
 | File | Pattern | Key function | Best for |
 |------|---------|-------------|----------|
-| `01_langchain_agent.py` | LangChain ReAct | `create_agent(tools, system)` | Quick agents with familiar tooling |
-| `02_langgraph_agent.py` | LangGraph graph | `create_graph(tools, system)` | Production agents, complex routing, HITL |
+| `01_langchain_agent.py` | `langgraph.prebuilt.create_react_agent` | `create_agent(tools, system)` | Fastest start — one call, batteries included |
+| `02_langgraph_agent.py` | Manual `StateGraph` | `create_graph(tools, system)` | Custom routing, HITL, complex state |
 | `03_tool_use.py` | Native Anthropic loop | `run_with_tools(messages, tools, handlers)` | Full control, no framework overhead |
 | `04_structured_output.py` | Pydantic extraction | `extract(text, Schema)` | Parsing documents, normalizing data |
 
@@ -37,7 +37,7 @@ pip install anthropic langchain langchain-anthropic langgraph langfuse pydantic 
 
 ## Which pattern should I use?
 
-**LangChain** (`01`) — Good starting point. Familiar ReAct loop, easy to swap tools, plenty of community examples.
+**`create_react_agent`** (`01`) — Fastest starting point. One call returns a compiled graph with the full ReAct loop built in. Uses `langgraph.prebuilt.create_react_agent` — the current recommended pattern, replacing the old `langchain.agents.create_react_agent + AgentExecutor`.
 
 **LangGraph** (`02`) — Preferred for anything you'll ship. Explicit state machine, built-in checkpointing, natural human-in-the-loop hooks. More setup, much more control.
 

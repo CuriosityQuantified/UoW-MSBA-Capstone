@@ -2,10 +2,13 @@
 # LangChain ReAct agent using the course proxy.
 #
 # create_agent(tools, system) is your starting point — give it tools,
-# get back an AgentExecutor you can invoke with any task.
+# get back a compiled LangGraph you can invoke with any task.
+#
+# Uses create_react_agent from langgraph.prebuilt — the current recommended
+# pattern. Returns a CompiledStateGraph directly; no AgentExecutor needed.
 #
 # Prerequisites:
-#   pip install langchain langchain-anthropic langfuse python-dotenv
+#   pip install langchain langchain-anthropic langgraph langfuse python-dotenv
 #
 # Environment variables required (.env):
 #   PROXY_AUTH_TOKEN        — semester token from instructor
@@ -17,9 +20,10 @@ import os
 from dotenv import load_dotenv
 
 from langchain_anthropic import ChatAnthropic
-from langchain.agents import AgentExecutor, create_react_agent
+from langchain_core.messages import HumanMessage
 from langchain.tools import tool
-from langchain_core.prompts import PromptTemplate
+from langgraph.prebuilt import create_react_agent
+from langgraph.graph.state import CompiledStateGraph
 from langfuse.callback import CallbackHandler
 
 load_dotenv()
@@ -51,39 +55,26 @@ def get_langfuse_handler(session_id: str = "default") -> CallbackHandler:
     )
 
 
-def create_agent(tools: list, system: str = "You are a helpful assistant.") -> AgentExecutor:
+def create_agent(tools: list, system: str = "You are a helpful assistant.") -> CompiledStateGraph:
     """
-    Build a LangChain ReAct agent with the given tools.
+    Build a ReAct agent with the given tools.
+
+    Uses create_react_agent from langgraph.prebuilt, which handles the
+    tool-calling loop internally and returns a compiled graph directly.
 
     Args:
         tools:  List of @tool-decorated functions the agent can call.
         system: System prompt describing the agent's role and behavior.
 
     Returns:
-        AgentExecutor — call with agent.invoke({"input": "your task"})
+        CompiledStateGraph — invoke with:
+            agent.invoke({"messages": [HumanMessage(content="your task")]})
     """
-    llm = get_llm()
-
-    prompt = PromptTemplate.from_template(
-        system + "\n\n"
-        "You have access to the following tools:\n\n"
-        "{tools}\n\n"
-        "Use this format:\n"
-        "Question: the input question\n"
-        "Thought: reason about what to do\n"
-        "Action: the tool to use, one of [{tool_names}]\n"
-        "Action Input: the input to the tool\n"
-        "Observation: the result\n"
-        "... (repeat Thought/Action/Observation as needed)\n"
-        "Thought: I now know the final answer\n"
-        "Final Answer: the answer\n\n"
-        "Begin!\n\n"
-        "Question: {input}\n"
-        "Thought: {agent_scratchpad}"
+    return create_react_agent(
+        model=get_llm(),
+        tools=tools,
+        prompt=system,
     )
-
-    agent = create_react_agent(llm=llm, tools=tools, prompt=prompt)
-    return AgentExecutor(agent=agent, tools=tools, verbose=True, handle_parsing_errors=True)
 
 
 # ---------------------------------------------------------------------------
@@ -94,8 +85,7 @@ def create_agent(tools: list, system: str = "You are a helpful assistant.") -> A
 def calculate(expression: str) -> str:
     """Evaluate a mathematical expression. Input: a Python math expression string."""
     try:
-        result = eval(expression, {"__builtins__": {}}, {})  # noqa: S307
-        return str(result)
+        return str(eval(expression, {"__builtins__": {}}, {}))  # noqa: S307
     except Exception as e:
         return f"Error: {e}"
 
@@ -126,9 +116,9 @@ if __name__ == "__main__":
     handler = get_langfuse_handler(session_id="langchain-demo")
 
     result = agent.invoke(
-        {"input": "If I convert $5,000 USD to EUR and then multiply by 1.15, what do I get?"},
+        {"messages": [HumanMessage(content="If I convert $5,000 USD to EUR and then multiply by 1.15, what do I get?")]},
         config={"callbacks": [handler]},
     )
 
-    print("\nFinal answer:", result["output"])
-    # Check your Langfuse dashboard — every ReAct step is traced.
+    print("\nFinal answer:", result["messages"][-1].content)
+    # Check your Langfuse dashboard — every ReAct step and tool call is traced.
