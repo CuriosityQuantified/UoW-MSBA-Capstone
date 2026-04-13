@@ -1,10 +1,3 @@
-# Core proxy dependencies (instructor side)
-modal
-fastapi
-httpx
-uvicorn
-
-# Student side dependencies
-openai
+anthropic
 langfuse
 python-dotenv

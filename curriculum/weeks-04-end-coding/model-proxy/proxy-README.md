@@ -40,12 +40,12 @@ All Claude Code sessions — including subagents (Explore, Web Search, etc.) —
 
 ---
 
-## Python Script Usage
+## Python Usage (agents, scripts, notebooks)
 
-For use outside Claude Code (evaluation scripts, notebooks, agent harnesses), use the Anthropic SDK:
+Copy `client.py` into your project. It exports `get_client()` — a pre-configured Anthropic client you build your agent on top of.
 
 ```bash
-pip install anthropic langfuse python-dotenv
+pip install -r proxy-requirements.txt
 ```
 
 Add to your `.env`:
@@ -56,7 +56,23 @@ LANGFUSE_SECRET_KEY=sk-lf-...
 LANGFUSE_HOST=https://us.cloud.langfuse.com
 ```
 
-See `proxy-example.py` for usage examples.
+Then in your code:
+
+```python
+from client import get_client, MODEL
+
+client = get_client()  # traced to your Langfuse by default
+
+response = client.messages.create(
+    model=MODEL,
+    max_tokens=1024,
+    system="You are a helpful assistant.",
+    messages=[{"role": "user", "content": "Hello"}]
+)
+print(response.content[0].text)
+```
+
+Run `python client.py` to verify your setup end-to-end before building your agent.
 
 ---
 
