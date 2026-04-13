@@ -137,7 +137,7 @@ Most people use Claude Code too early and too fast. The better workflow is about
 
 That one shift saves a lot of messy refactoring later.
 
-### Six Strategies from Austin Marchese (Claude Code creator)
+### Six Key Strategies 
 
 1. **Plan mode first** — `Shift+Tab` twice before every session
 2. **Minimal `claude.md`** — Keep it under a few thousand tokens
