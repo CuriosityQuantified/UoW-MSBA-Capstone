@@ -1,44 +1,99 @@
-# Example student usage
+"""
+UW MSBA AI Proxy — Example Usage
 
-from langfuse.openai import OpenAI
-from dotenv import load_dotenv
+Uses the Anthropic SDK pointing at the course proxy.
+For Claude Code setup, see proxy-README.md instead.
+
+Setup:
+    pip install anthropic langfuse python-dotenv
+
+.env:
+    PROXY_AUTH_TOKEN=<your-semester-token>
+    LANGFUSE_PUBLIC_KEY=pk-lf-...
+    LANGFUSE_SECRET_KEY=sk-lf-...
+    LANGFUSE_HOST=https://us.cloud.langfuse.com
+"""
+
 import os
+from dotenv import load_dotenv
+import anthropic
 
 load_dotenv()
 
-# Initialize with proxy endpoint
-client = OpenAI(
-    api_key=os.environ["PROXY_AUTH_TOKEN"],
-    base_url="https://nap1320--uw-msba-proxy-serve.modal.run/v1"
+PROXY_URL = "https://model-proxy.curiosityquantified.com"
+AUTH_TOKEN = os.environ["PROXY_AUTH_TOKEN"]
+
+# The proxy forces kimi-k2p5-turbo regardless of what model you pass
+MODEL = "accounts/fireworks/routers/kimi-k2p5-turbo"
+
+# Initialize Anthropic client pointing at the proxy
+client = anthropic.Anthropic(
+    api_key=AUTH_TOKEN,
+    base_url=PROXY_URL,
 )
 
-# Simple completion
-response = client.chat.completions.create(
-    model="kimi-k2.5-fast",
-    messages=[{"role": "user", "content": "Say hello"}],
-    temperature=0.7
-)
 
-print(response.choices[0].message.content)
+# --- Example 1: Simple completion ---
 
-# With system prompt and multiple messages
-response = client.chat.completions.create(
-    model="kimi-k2.5-fast",
+response = client.messages.create(
+    model=MODEL,
+    max_tokens=256,
     messages=[
-        {"role": "system", "content": "You are a data science tutor."},
-        {"role": "user", "content": "Explain overfitting in simple terms."},
-        {"role": "assistant", "content": "Overfitting is when..."},
-        {"role": "user", "content": "Give me an example with decision trees."}
+        {"role": "user", "content": "Explain the difference between precision and recall in one paragraph."}
     ]
 )
 
-# Streaming
-stream = client.chat.completions.create(
-    model="kimi-k2.5-fast",
-    messages=[{"role": "user", "content": "Write a short poem about AI."}],
-    stream=True
+print(response.content[0].text)
+
+
+# --- Example 2: System prompt + multi-turn ---
+
+response = client.messages.create(
+    model=MODEL,
+    max_tokens=512,
+    system="You are a data science tutor. Be concise and use examples.",
+    messages=[
+        {"role": "user", "content": "What is overfitting?"},
+        {"role": "assistant", "content": "Overfitting is when a model learns the training data too well..."},
+        {"role": "user", "content": "Give me a concrete example with decision trees."}
+    ]
 )
 
-for chunk in stream:
-    if chunk.choices[0].delta.content:
-        print(chunk.choices[0].delta.content, end="")
+print(response.content[0].text)
+
+
+# --- Example 3: Streaming ---
+
+with client.messages.stream(
+    model=MODEL,
+    max_tokens=256,
+    messages=[{"role": "user", "content": "Write a haiku about machine learning."}]
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="", flush=True)
+    print()  # newline after stream
+
+
+# --- Example 4: With Langfuse observability ---
+# Langfuse wraps the Anthropic client to capture traces automatically.
+# Every call below is traced to YOUR Langfuse project.
+
+try:
+    from langfuse.anthropic import anthropic as langfuse_anthropic
+
+    traced_client = langfuse_anthropic.Anthropic(
+        api_key=AUTH_TOKEN,
+        base_url=PROXY_URL,
+    )
+
+    response = traced_client.messages.create(
+        model=MODEL,
+        max_tokens=128,
+        messages=[{"role": "user", "content": "Hello from the traced client!"}]
+    )
+
+    print(response.content[0].text)
+    print("(Check your Langfuse dashboard for the trace)")
+
+except ImportError:
+    print("Langfuse not installed. Run: pip install langfuse")
