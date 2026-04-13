@@ -1,11 +1,11 @@
 # 01_langchain_agent.py
-# LangChain ReAct agent using the course proxy.
+# LangChain agent using the course proxy.
 #
-# create_agent(tools, system) is your starting point — give it tools,
-# get back a compiled LangGraph you can invoke with any task.
+# create_agent(tools, system_prompt) is your starting point — give it tools,
+# get back an agent you can invoke with any task.
 #
-# Uses create_react_agent from langgraph.prebuilt — the current recommended
-# pattern. Returns a CompiledStateGraph directly; no AgentExecutor needed.
+# Uses create_agent from langchain.agents — the current recommended pattern.
+# Returns a compiled graph; no AgentExecutor, no PromptTemplate needed.
 #
 # Prerequisites:
 #   pip install langchain langchain-anthropic langgraph langfuse python-dotenv
@@ -19,11 +19,10 @@
 import os
 from dotenv import load_dotenv
 
+from langchain.agents import create_agent
 from langchain_anthropic import ChatAnthropic
-from langchain_core.messages import HumanMessage
 from langchain.tools import tool
-from langgraph.prebuilt import create_react_agent
-from langgraph.graph.state import CompiledStateGraph
+from langchain_core.messages import HumanMessage
 from langfuse.callback import CallbackHandler
 
 load_dotenv()
@@ -55,25 +54,25 @@ def get_langfuse_handler(session_id: str = "default") -> CallbackHandler:
     )
 
 
-def create_agent(tools: list, system: str = "You are a helpful assistant.") -> CompiledStateGraph:
+def create_agent_with_tools(tools: list, system_prompt: str = "You are a helpful assistant."):
     """
-    Build a ReAct agent with the given tools.
+    Build an agent with the given tools.
 
-    Uses create_react_agent from langgraph.prebuilt, which handles the
-    tool-calling loop internally and returns a compiled graph directly.
+    Uses create_agent from langchain.agents, which handles the tool-calling
+    loop internally and returns a compiled graph.
 
     Args:
-        tools:  List of @tool-decorated functions the agent can call.
-        system: System prompt describing the agent's role and behavior.
+        tools:         List of @tool-decorated functions the agent can call.
+        system_prompt: System prompt describing the agent's role and behavior.
 
     Returns:
-        CompiledStateGraph — invoke with:
+        Compiled agent — invoke with:
             agent.invoke({"messages": [HumanMessage(content="your task")]})
     """
-    return create_react_agent(
+    return create_agent(
         model=get_llm(),
         tools=tools,
-        prompt=system,
+        system_prompt=system_prompt,
     )
 
 
@@ -108,9 +107,9 @@ def lookup_exchange_rate(currency_pair: str) -> str:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    agent = create_agent(
+    agent = create_agent_with_tools(
         tools=[calculate, lookup_exchange_rate],
-        system="You are a financial analysis assistant. Use tools to answer quantitative questions.",
+        system_prompt="You are a financial analysis assistant. Use tools to answer quantitative questions.",
     )
 
     handler = get_langfuse_handler(session_id="langchain-demo")
@@ -121,4 +120,4 @@ if __name__ == "__main__":
     )
 
     print("\nFinal answer:", result["messages"][-1].content)
-    # Check your Langfuse dashboard — every ReAct step and tool call is traced.
+    # Check your Langfuse dashboard — every step and tool call is traced.

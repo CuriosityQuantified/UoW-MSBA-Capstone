@@ -1,9 +1,11 @@
 # 02_langgraph_agent.py
-# LangGraph agent with tool calling using the course proxy.
+# LangGraph agent with custom graph construction using the course proxy.
 #
-# create_graph(tools, system) returns a compiled StateGraph. This is the
-# recommended pattern for production agents — explicit state, checkpointing,
-# and clean human-in-the-loop hooks when you need them.
+# create_graph(tools, system) returns a compiled StateGraph. Use this when
+# you need control that create_agent doesn't expose: custom routing logic,
+# additional state fields, human-in-the-loop interrupts, or checkpointing.
+#
+# Uses MessagesState and the Graph API — the standard LangGraph pattern.
 #
 # Prerequisites:
 #   pip install langchain langchain-anthropic langgraph langfuse python-dotenv
@@ -15,14 +17,13 @@
 #   LANGFUSE_HOST=https://us.cloud.langfuse.com
 
 import os
-from typing import Annotated, TypedDict
+from typing import Literal
 from dotenv import load_dotenv
 
 from langchain_anthropic import ChatAnthropic
 from langchain.tools import tool
-from langchain_core.messages import HumanMessage, SystemMessage, BaseMessage
-from langgraph.graph import StateGraph, END
-from langgraph.graph.message import add_messages
+from langchain_core.messages import HumanMessage, SystemMessage
+from langgraph.graph import StateGraph, MessagesState, START, END
 from langgraph.prebuilt import ToolNode
 from langfuse.callback import CallbackHandler
 
@@ -38,7 +39,7 @@ MODEL = "accounts/fireworks/routers/kimi-k2p5-turbo"
 
 def get_llm(tools: list | None = None) -> ChatAnthropic:
     """Return a ChatAnthropic instance routed through the course proxy.
-    Pass tools to enable tool calling (bind_tools)."""
+    Pass tools to bind them for tool calling."""
     llm = ChatAnthropic(
         model=MODEL,
         anthropic_api_key=os.environ["PROXY_AUTH_TOKEN"],
@@ -58,57 +59,54 @@ def get_langfuse_handler(session_id: str = "default") -> CallbackHandler:
 
 
 # ---------------------------------------------------------------------------
-# Agent state
-# ---------------------------------------------------------------------------
-
-class AgentState(TypedDict):
-    messages: Annotated[list[BaseMessage], add_messages]
-
-
-# ---------------------------------------------------------------------------
 # Graph factory — the function you build on top of
 # ---------------------------------------------------------------------------
 
 def create_graph(tools: list, system: str = "You are a helpful assistant."):
     """
-    Build a LangGraph ReAct agent with the given tools.
+    Build a LangGraph agent with explicit node and edge definitions.
 
-    The graph has two nodes:
-      agent     — LLM decides what to do next (call a tool or stop)
-      tools     — executes whichever tool the LLM requested
+    Graph structure:
+      START → llm_call ⇄ tool_node → END
+
+    Use this pattern (vs 01_langchain_agent) when you need:
+      - Additional state fields beyond messages
+      - Custom routing between multiple tool nodes
+      - Human-in-the-loop interrupts (interrupt_before=["tool_node"])
+      - Checkpointing / persistent memory
 
     Args:
         tools:  List of @tool-decorated functions the agent can call.
         system: System prompt describing the agent's role and behavior.
 
     Returns:
-        Compiled LangGraph — invoke with:
+        Compiled StateGraph — invoke with:
             graph.invoke({"messages": [HumanMessage(content="...")]})
     """
-    llm = get_llm(tools=tools)
+    llm_with_tools = get_llm(tools=tools)
     tool_node = ToolNode(tools)
 
-    def agent_node(state: AgentState) -> AgentState:
+    def llm_call(state: MessagesState) -> MessagesState:
+        """LLM decides whether to call a tool or produce a final response."""
         messages = state["messages"]
-        # Prepend system message on every call (stateless system prompt)
+        # Prepend system message if not already present
         if not any(isinstance(m, SystemMessage) for m in messages):
             messages = [SystemMessage(content=system)] + list(messages)
-        response = llm.invoke(messages)
-        return {"messages": [response]}
+        return {"messages": [llm_with_tools.invoke(messages)]}
 
-    def should_continue(state: AgentState) -> str:
+    def should_continue(state: MessagesState) -> Literal["tool_node", "__end__"]:
+        """Route to tool execution or stop based on whether the LLM called a tool."""
         last = state["messages"][-1]
-        # If the LLM requested tool calls, route to tools; otherwise stop
         if hasattr(last, "tool_calls") and last.tool_calls:
-            return "tools"
-        return "end"
+            return "tool_node"
+        return END
 
-    builder = StateGraph(AgentState)
-    builder.add_node("agent", agent_node)
-    builder.add_node("tools", tool_node)
-    builder.set_entry_point("agent")
-    builder.add_conditional_edges("agent", should_continue, {"tools": "tools", "end": END})
-    builder.add_edge("tools", "agent")  # Always return to agent after tool use
+    builder = StateGraph(MessagesState)
+    builder.add_node("llm_call", llm_call)
+    builder.add_node("tool_node", tool_node)
+    builder.add_edge(START, "llm_call")
+    builder.add_conditional_edges("llm_call", should_continue, ["tool_node", END])
+    builder.add_edge("tool_node", "llm_call")
 
     return builder.compile()
 
@@ -129,7 +127,7 @@ def search_company_data(company: str) -> str:
         "AMZN": {"revenue": "$575B", "employees": 1_540_000, "sector": "E-commerce"},
     }
     ticker = company.upper()
-    data = mock_db.get(ticker, mock_db.get(company.upper()))
+    data = mock_db.get(ticker)
     if not data:
         return f"No data found for '{company}'. Try: AAPL, MSFT, AMZN"
     return f"{ticker}: revenue={data['revenue']}, employees={data['employees']:,}, sector={data['sector']}"
