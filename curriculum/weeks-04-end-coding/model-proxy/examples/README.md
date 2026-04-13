@@ -17,10 +17,11 @@ LANGFUSE_HOST=https://us.cloud.langfuse.com
 
 | File | Pattern | Key function | Best for |
 |------|---------|-------------|----------|
-| `01_langchain_agent.py` | `langgraph.prebuilt.create_react_agent` | `create_agent(tools, system)` | Fastest start — one call, batteries included |
+| `01_langchain_agent.py` | `langchain.agents.create_agent` | `create_agent_with_tools(tools, system)` | Fastest start — one call, batteries included |
 | `02_langgraph_agent.py` | Manual `StateGraph` | `create_graph(tools, system)` | Custom routing, HITL, complex state |
 | `03_tool_use.py` | Native Anthropic loop | `run_with_tools(messages, tools, handlers)` | Full control, no framework overhead |
 | `04_structured_output.py` | Pydantic extraction | `extract(text, Schema)` | Parsing documents, normalizing data |
+| `05_deep_agent.py` | `deepagents.create_deep_agent` | `create_research_agent(subagents)` | Multi-agent delegation, parallel sub-tasks |
 
 ---
 
@@ -28,7 +29,7 @@ LANGFUSE_HOST=https://us.cloud.langfuse.com
 
 ```bash
 # All examples
-pip install anthropic langchain langchain-anthropic langgraph langfuse pydantic python-dotenv
+pip install anthropic langchain langchain-anthropic langgraph deepagents langfuse pydantic python-dotenv
 
 # Or per-example (see the header comment in each file)
 ```
@@ -44,5 +45,7 @@ pip install anthropic langchain langchain-anthropic langgraph langfuse pydantic 
 **Native tool use** (`03`) — When you don't want a framework. Direct SDK calls, inspect every step, add custom logic between tool calls. Good for understanding what the frameworks abstract away.
 
 **Structured output** (`04`) — When your agent needs to *produce* data, not just text. Pydantic schema forces the model to return valid typed objects — no string parsing.
+
+**Deep agent** (`05`) — Multi-agent delegation via `deepagents.create_deep_agent`. A supervisor agent breaks the task down and hands off sub-tasks to specialised sub-agents (each with their own tools and system prompt). Sub-agents inherit the main model so the proxy wires through automatically. Use for research workflows, parallel data gathering, or any task that benefits from role separation.
 
 > See `curriculum/weeks-04-end-coding/model-proxy/client.py` for the base `get_client()` function that examples 03 and 04 are built on.
